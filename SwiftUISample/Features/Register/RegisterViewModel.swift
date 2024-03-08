@@ -13,6 +13,7 @@ class RegisterViewModel: ObservableObject {
     @Published var birthday = Date.now
     
     func register() {
-        // TODO: Implement
+        // TODO: validate
+        // TODO: push to welcome screen
     }
 }
