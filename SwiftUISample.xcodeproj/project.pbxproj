@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		A90B64982B9B8D7700DE7A53 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90B64972B9B8D7700DE7A53 /* RegisterView.swift */; };
 		A90B649A2B9B8DDC00DE7A53 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90B64992B9B8DDC00DE7A53 /* RegisterViewModel.swift */; };
+		A90B649E2B9B8EF200DE7A53 /* Navigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90B649D2B9B8EF200DE7A53 /* Navigator.swift */; };
+		A90B64A02B9B8EFD00DE7A53 /* Routes.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90B649F2B9B8EFD00DE7A53 /* Routes.swift */; };
 		A942FC462B9B7ACC008CA2C8 /* SwiftUISampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A942FC452B9B7ACC008CA2C8 /* SwiftUISampleApp.swift */; };
 		A942FC482B9B7ACC008CA2C8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A942FC472B9B7ACC008CA2C8 /* ContentView.swift */; };
 		A942FC4A2B9B7ACD008CA2C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A942FC492B9B7ACD008CA2C8 /* Assets.xcassets */; };
@@ -39,6 +41,8 @@
 		A90B64912B9B7DFF00DE7A53 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = SOURCE_ROOT; };
 		A90B64972B9B8D7700DE7A53 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		A90B64992B9B8DDC00DE7A53 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
+		A90B649D2B9B8EF200DE7A53 /* Navigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigator.swift; sourceTree = "<group>"; };
+		A90B649F2B9B8EFD00DE7A53 /* Routes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routes.swift; sourceTree = "<group>"; };
 		A942FC422B9B7ACC008CA2C8 /* SwiftUISample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUISample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A942FC452B9B7ACC008CA2C8 /* SwiftUISampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUISampleApp.swift; sourceTree = "<group>"; };
 		A942FC472B9B7ACC008CA2C8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -115,6 +119,8 @@
 		A90B64962B9B81BC00DE7A53 /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
+				A90B649D2B9B8EF200DE7A53 /* Navigator.swift */,
+				A90B649F2B9B8EFD00DE7A53 /* Routes.swift */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
@@ -324,6 +330,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				A90B64982B9B8D7700DE7A53 /* RegisterView.swift in Sources */,
+				A90B64A02B9B8EFD00DE7A53 /* Routes.swift in Sources */,
+				A90B649E2B9B8EF200DE7A53 /* Navigator.swift in Sources */,
 				A942FC482B9B7ACC008CA2C8 /* ContentView.swift in Sources */,
 				A942FC462B9B7ACC008CA2C8 /* SwiftUISampleApp.swift in Sources */,
 				A90B649A2B9B8DDC00DE7A53 /* RegisterViewModel.swift in Sources */,

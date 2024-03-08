@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct RegisterViewArguments {
+struct RegisterViewArguments: Hashable {
     
 }
 
