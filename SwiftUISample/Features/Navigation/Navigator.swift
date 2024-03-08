@@ -10,22 +10,18 @@ import Foundation
 import SwiftUI
 
 @MainActor
-class Navigator: ObservableObject
-{
+class Navigator: ObservableObject {
     @Published var path = NavigationPath()
     
-    func push(_ destination: Route)
-    {
+    func push(_ destination: Route) {
         path.append(destination)
     }
     
-    func pop()
-    {
+    func pop() {
         path.removeLast()
     }
     
-    func popToRooot()
-    {
+    func popToRooot() {
         path.removeLast(path.count)
     }
 }

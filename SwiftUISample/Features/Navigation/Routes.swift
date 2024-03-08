@@ -8,16 +8,14 @@
 import Foundation
 import SwiftUI
 
-enum Route: Identifiable, Hashable
-{
+enum Route: Identifiable, Hashable {
     case register(_ args: RegisterViewArguments)
     
     var id: Int { hashValue }
 }
 
 @MainActor
-extension View
-{
+extension View {
     @ViewBuilder
     func destinationFor(_ route: Route) -> some View
     {
