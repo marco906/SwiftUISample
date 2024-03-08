@@ -11,8 +11,9 @@
 		A90B649A2B9B8DDC00DE7A53 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90B64992B9B8DDC00DE7A53 /* RegisterViewModel.swift */; };
 		A90B649E2B9B8EF200DE7A53 /* Navigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90B649D2B9B8EF200DE7A53 /* Navigator.swift */; };
 		A90B64A02B9B8EFD00DE7A53 /* Routes.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90B649F2B9B8EFD00DE7A53 /* Routes.swift */; };
+		A90B64A32B9B93E200DE7A53 /* Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90B64A22B9B93E200DE7A53 /* Mock.swift */; };
 		A942FC462B9B7ACC008CA2C8 /* SwiftUISampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A942FC452B9B7ACC008CA2C8 /* SwiftUISampleApp.swift */; };
-		A942FC482B9B7ACC008CA2C8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A942FC472B9B7ACC008CA2C8 /* ContentView.swift */; };
+		A942FC482B9B7ACC008CA2C8 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A942FC472B9B7ACC008CA2C8 /* MainView.swift */; };
 		A942FC4A2B9B7ACD008CA2C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A942FC492B9B7ACD008CA2C8 /* Assets.xcassets */; };
 		A942FC4E2B9B7ACD008CA2C8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A942FC4D2B9B7ACD008CA2C8 /* Preview Assets.xcassets */; };
 		A942FC582B9B7ACD008CA2C8 /* SwiftUISampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A942FC572B9B7ACD008CA2C8 /* SwiftUISampleTests.swift */; };
@@ -43,9 +44,10 @@
 		A90B64992B9B8DDC00DE7A53 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		A90B649D2B9B8EF200DE7A53 /* Navigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigator.swift; sourceTree = "<group>"; };
 		A90B649F2B9B8EFD00DE7A53 /* Routes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routes.swift; sourceTree = "<group>"; };
+		A90B64A22B9B93E200DE7A53 /* Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mock.swift; sourceTree = "<group>"; };
 		A942FC422B9B7ACC008CA2C8 /* SwiftUISample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUISample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A942FC452B9B7ACC008CA2C8 /* SwiftUISampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUISampleApp.swift; sourceTree = "<group>"; };
-		A942FC472B9B7ACC008CA2C8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		A942FC472B9B7ACC008CA2C8 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		A942FC492B9B7ACD008CA2C8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A942FC4B2B9B7ACD008CA2C8 /* SwiftUISample.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SwiftUISample.entitlements; sourceTree = "<group>"; };
 		A942FC4D2B9B7ACD008CA2C8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -139,6 +141,14 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		A90B64A12B9B93CB00DE7A53 /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				A90B64A22B9B93E200DE7A53 /* Mock.swift */,
+			);
+			path = Mock;
+			sourceTree = "<group>";
+		};
 		A942FC392B9B7ACC008CA2C8 = {
 			isa = PBXGroup;
 			children = (
@@ -165,10 +175,11 @@
 			children = (
 				A942FC4B2B9B7ACD008CA2C8 /* SwiftUISample.entitlements */,
 				A942FC452B9B7ACC008CA2C8 /* SwiftUISampleApp.swift */,
-				A942FC472B9B7ACC008CA2C8 /* ContentView.swift */,
+				A942FC472B9B7ACC008CA2C8 /* MainView.swift */,
 				A90B64922B9B813B00DE7A53 /* Features */,
 				A90B649B2B9B8E1100DE7A53 /* Data */,
 				A90B649C2B9B8E1A00DE7A53 /* Utils */,
+				A90B64A12B9B93CB00DE7A53 /* Mock */,
 				A90B64932B9B814C00DE7A53 /* Assets */,
 			);
 			path = SwiftUISample;
@@ -332,7 +343,8 @@
 				A90B64982B9B8D7700DE7A53 /* RegisterView.swift in Sources */,
 				A90B64A02B9B8EFD00DE7A53 /* Routes.swift in Sources */,
 				A90B649E2B9B8EF200DE7A53 /* Navigator.swift in Sources */,
-				A942FC482B9B7ACC008CA2C8 /* ContentView.swift in Sources */,
+				A90B64A32B9B93E200DE7A53 /* Mock.swift in Sources */,
+				A942FC482B9B7ACC008CA2C8 /* MainView.swift in Sources */,
 				A942FC462B9B7ACC008CA2C8 /* SwiftUISampleApp.swift in Sources */,
 				A90B649A2B9B8DDC00DE7A53 /* RegisterViewModel.swift in Sources */,
 			);

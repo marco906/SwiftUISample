@@ -13,6 +13,7 @@ struct RegisterViewArguments: Hashable {
 
 struct RegisterView: View {
     @StateObject var model = RegisterViewModel()
+    @EnvironmentObject var navigator: Navigator
     
     init(_ args: RegisterViewArguments) {
         
