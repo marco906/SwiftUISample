@@ -13,6 +13,7 @@ struct MainView: View {
     var body: some View {
         NavigationStack(path: $navigator.path) {
             rootView
+                .environmentObject(navigator)
                 .navigationDestination(for: Route.self) { route in
                     destinationWitEnvironments(route)
                 }
