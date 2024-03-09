@@ -58,4 +58,29 @@ final class SwiftUISampleTests: XCTestCase {
             XCTAssertEqual(error as? ValidationError, ValidationError.invalidEmail)
         }
     }
+    
+    func testValidateName() throws {
+        let model = RegisterViewModel()
+        
+        XCTAssertNoThrow(try model.validateName("Max Mustermann"), "Valid name should not throw")
+        
+        XCTAssertThrowsError(try model.validateName(""), "Invalid empty name should throw") { error in
+            XCTAssertEqual(error as? ValidationError, ValidationError.invalidName)
+        }
+    }
+    
+    func testValidateBirthday() throws {
+        let model = RegisterViewModel()
+        
+        let validDate = Calendar.current.date(from: DateComponents(year: 2000, month: 1, day: 1)) ?? Date.now
+        XCTAssertNoThrow(try model.validateBirthday(validDate), "Valid date should not throw")
+        
+        XCTAssertThrowsError(try model.validateBirthday(Date.now), "Invalid date too close to now should throw") { error in
+            XCTAssertEqual(error as? ValidationError, ValidationError.invalidBirthday)
+        }
+        
+        XCTAssertThrowsError(try model.validateBirthday(Date.distantPast), "Invalid date too far in the past should throw") { error in
+            XCTAssertEqual(error as? ValidationError, ValidationError.invalidBirthday)
+        }
+    }
 }

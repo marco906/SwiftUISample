@@ -34,7 +34,7 @@ class RegisterViewModel: ObservableObject {
             throw ValidationError.invalidBirthday
         }
         
-        guard birthday >= minDate && birthday <= maxDate else {
+        guard date >= minDate && date <= maxDate else {
             throw ValidationError.invalidBirthday
         }
     }
