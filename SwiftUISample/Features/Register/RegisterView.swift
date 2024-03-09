@@ -22,6 +22,9 @@ struct RegisterView: View {
     var body: some View {
         form
             .navigationTitle(Strings.registerNavigationTitle)
+            .task {
+                start()
+            }
     }
     
     var form: some View {
@@ -55,10 +58,26 @@ struct RegisterView: View {
     
     var registerButton: some View {
         Button(Strings.registerButtonTitle, action: clickedRegister)
+            .disabled(!model.canRegister)
+    }
+    
+    func start() {
+        model.setup(onAction: handleAction)
     }
     
     func clickedRegister() {
-        navigator.push(.register(RegisterViewArguments()))
+        model.register()
+    }
+    
+    func handleAction(_ action: RegisterModelAction) {
+        switch action {
+        case .success: openWelcome()
+        }
+    }
+    
+    func openWelcome() {
+        let args = WelcomeViewArguments()
+        navigator.push(.welcome(args))
     }
 }
 
