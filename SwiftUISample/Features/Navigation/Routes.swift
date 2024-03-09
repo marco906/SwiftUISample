@@ -10,6 +10,7 @@ import SwiftUI
 
 enum Route: Identifiable, Hashable {
     case register(_ args: RegisterViewArguments)
+    case welcome(_ args: WelcomeViewArguments)
     
     var id: Int { hashValue }
 }
@@ -23,6 +24,8 @@ extension View {
         {
         case let .register(args):
             RegisterView(args)
+        case let .welcome(args):
+            WelcomeView(args)
         }
     }
 }
