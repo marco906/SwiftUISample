@@ -20,6 +20,9 @@
 		A942FC582B9B7ACD008CA2C8 /* SwiftUISampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A942FC572B9B7ACD008CA2C8 /* SwiftUISampleTests.swift */; };
 		A942FC622B9B7ACD008CA2C8 /* SwiftUISampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A942FC612B9B7ACD008CA2C8 /* SwiftUISampleUITests.swift */; };
 		A942FC642B9B7ACD008CA2C8 /* SwiftUISampleUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A942FC632B9B7ACD008CA2C8 /* SwiftUISampleUITestsLaunchTests.swift */; };
+		A95CAF802B9C67ED0088561E /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = A95CAF7F2B9C67ED0088561E /* Localizable.xcstrings */; };
+		A95CAF842B9C6BB50088561E /* strings.py in Resources */ = {isa = PBXBuildFile; fileRef = A95CAF832B9C6BB50088561E /* strings.py */; };
+		A95CAF862B9C8F7B0088561E /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95CAF852B9C8F7B0088561E /* Strings.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +61,9 @@
 		A942FC5D2B9B7ACD008CA2C8 /* SwiftUISampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftUISampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A942FC612B9B7ACD008CA2C8 /* SwiftUISampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUISampleUITests.swift; sourceTree = "<group>"; };
 		A942FC632B9B7ACD008CA2C8 /* SwiftUISampleUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUISampleUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		A95CAF7F2B9C67ED0088561E /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		A95CAF832B9C6BB50088561E /* strings.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = strings.py; sourceTree = "<group>"; };
+		A95CAF852B9C8F7B0088561E /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +158,23 @@
 			path = Mock;
 			sourceTree = "<group>";
 		};
+		A90D80382B9C6428006E31C1 /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				A95CAF852B9C8F7B0088561E /* Strings.swift */,
+				A95CAF7F2B9C67ED0088561E /* Localizable.xcstrings */,
+			);
+			path = Localization;
+			sourceTree = "<group>";
+		};
+		A90D80392B9C6446006E31C1 /* Scripts */ = {
+			isa = PBXGroup;
+			children = (
+				A95CAF832B9C6BB50088561E /* strings.py */,
+			);
+			path = Scripts;
+			sourceTree = "<group>";
+		};
 		A942FC392B9B7ACC008CA2C8 = {
 			isa = PBXGroup;
 			children = (
@@ -182,6 +205,8 @@
 				A90B64922B9B813B00DE7A53 /* Features */,
 				A90B649B2B9B8E1100DE7A53 /* Data */,
 				A90B649C2B9B8E1A00DE7A53 /* Utils */,
+				A90D80382B9C6428006E31C1 /* Localization */,
+				A90D80392B9C6446006E31C1 /* Scripts */,
 				A90B64A12B9B93CB00DE7A53 /* Mock */,
 				A90B64932B9B814C00DE7A53 /* Assets */,
 			);
@@ -297,8 +322,8 @@
 			developmentRegion = de;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				Base,
 				de,
+				Base,
 			);
 			mainGroup = A942FC392B9B7ACC008CA2C8;
 			productRefGroup = A942FC432B9B7ACC008CA2C8 /* Products */;
@@ -318,7 +343,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				A942FC4E2B9B7ACD008CA2C8 /* Preview Assets.xcassets in Resources */,
+				A95CAF802B9C67ED0088561E /* Localizable.xcstrings in Resources */,
 				A942FC4A2B9B7ACD008CA2C8 /* Assets.xcassets in Resources */,
+				A95CAF842B9C6BB50088561E /* strings.py in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -344,6 +371,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A90B64982B9B8D7700DE7A53 /* RegisterView.swift in Sources */,
+				A95CAF862B9C8F7B0088561E /* Strings.swift in Sources */,
 				A90B64A02B9B8EFD00DE7A53 /* Routes.swift in Sources */,
 				A90B649E2B9B8EF200DE7A53 /* Navigator.swift in Sources */,
 				A90B64A32B9B93E200DE7A53 /* Mock.swift in Sources */,

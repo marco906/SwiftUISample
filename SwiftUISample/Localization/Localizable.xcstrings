@@ -1,0 +1,27 @@
+{
+  "sourceLanguage" : "de",
+  "strings" : {
+    "Birthday" : {
+
+    },
+    "Date of birth" : {
+
+    },
+    "Email" : {
+
+    },
+    "Email address" : {
+
+    },
+    "Enter your name" : {
+
+    },
+    "Name" : {
+
+    },
+    "Register" : {
+
+    }
+  },
+  "version" : "1.0"
+}
