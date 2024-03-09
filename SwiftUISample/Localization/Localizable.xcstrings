@@ -1,26 +1,88 @@
 {
   "sourceLanguage" : "de",
   "strings" : {
-    "Birthday" : {
-
+    "registerButtonTitle" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Registrieren"
+          }
+        }
+      }
     },
-    "Date of birth" : {
-
+    "registerFieldBirthdayDescription" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Geburstdatum"
+          }
+        }
+      }
     },
-    "Email" : {
-
+    "registerFieldBirthdayTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Geburtstag"
+          }
+        }
+      }
     },
-    "Email address" : {
-
+    "registerFieldEmailDescription" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Email Adresse"
+          }
+        }
+      }
     },
-    "Enter your name" : {
-
+    "registerFieldEmailTitle" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Email"
+          }
+        }
+      }
     },
-    "Name" : {
-
+    "registerFieldNameDescription" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vor- und Nachname"
+          }
+        }
+      }
     },
-    "Register" : {
-
+    "registerFieldNameTitle" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Name"
+          }
+        }
+      }
+    },
+    "registerNavigationTitle" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Registrierung"
+          }
+        }
+      }
     }
   },
   "version" : "1.0"

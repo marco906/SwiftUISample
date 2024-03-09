@@ -30,13 +30,13 @@ def generate_swift_class(strings):
     swift_code = "//\n//  This file is auto generated from the strings catalog by strings.py\n//\n\n"
     swift_code += "import Foundation\n"
     swift_code += "import SwiftUI\n\n"
-    swift_code += "struct Strings {\n"
+    swift_code += "struct Strings {\n\n"
     
     for key, value in strings.items():
         args = []
 
         words = key.split()
-        key_name = words[0].lower() + ''.join(word.title() for word in words[1:])
+        key_name = words[0] + ''.join(word.title() for word in words[1:])
         
         if "%lld" in value:
             # Find parameters in the value

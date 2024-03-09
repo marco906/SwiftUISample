@@ -21,7 +21,7 @@ struct RegisterView: View {
     
     var body: some View {
         form
-            .navigationTitle("Register")
+            .navigationTitle(Strings.registerNavigationTitle)
     }
     
     var form: some View {
@@ -34,27 +34,27 @@ struct RegisterView: View {
     }
     
     var nameSection: some View {
-        Section("Name") {
-            TextField("Enter your name", text: $model.name)
+        Section(Strings.registerFieldNameTitle) {
+            TextField(Strings.registerFieldNameDescription, text: $model.name)
         }
     }
     
     var emailSection: some View {
-        Section("Email") {
-            TextField("Email address", text: $model.email)
+        Section(Strings.registerFieldEmailTitle) {
+            TextField(Strings.registerFieldEmailDescription, text: $model.email)
                 .keyboardType(.emailAddress)
         }
     }
     
     var dateSection: some View {
-        Section("Date of birth") {
-            DatePicker("Birthday", selection: $model.birthday, displayedComponents: .date)
+        Section(Strings.registerFieldBirthdayTitle) {
+            DatePicker(Strings.registerFieldBirthdayDescription, selection: $model.birthday, displayedComponents: .date)
                 .datePickerStyle(.automatic)
         }
     }
     
     var registerButton: some View {
-        Button("Register", action: clickedRegister)
+        Button(Strings.registerButtonTitle, action: clickedRegister)
     }
     
     func clickedRegister() {
