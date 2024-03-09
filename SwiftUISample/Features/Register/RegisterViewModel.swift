@@ -12,20 +12,20 @@ class RegisterViewModel: ObservableObject {
     @Published var email = ""
     @Published var birthday = Date.now
     
-    func validateName() throws {
+    func validateName(_ name: String) throws {
         guard !name.isEmpty else {
             throw ValidationError.invalidName
         }
     }
     
-    func validateEmail() throws {
+    func validateEmail(_ email: String) throws {
         let pattern = /([a-zA-Z0-9._-]+)(@{1})([a-zA-Z0-9.-]+)(.{1})([a-zA-Z]{2,})/
         guard email.wholeMatch(of: pattern) != nil else {
             throw ValidationError.invalidEmail
         }
     }
     
-    func validateBirthday() throws {
+    func validateBirthday(_ date: Date) throws {
         let calendar = Calendar.current
         let minDateComponents = DateComponents(year: 1900, month: 1, day: 1)
         let maxDateComponents = DateComponents(year: 2022, month: 12, day: 31)
@@ -40,9 +40,9 @@ class RegisterViewModel: ObservableObject {
     }
     
     private func validate() throws {
-        try validateName()
-        try validateEmail()
-        try validateBirthday()
+        try validateName(name)
+        try validateEmail(email)
+        try validateBirthday(birthday)
     }
     
     private func save() {

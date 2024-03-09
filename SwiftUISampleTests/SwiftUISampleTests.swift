@@ -17,19 +17,45 @@ final class SwiftUISampleTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        measure {
-            // Put the code you want to measure the time of here.
+    func testValidateEmail() throws {
+        let model = RegisterViewModel()
+        
+        XCTAssertNoThrow(try model.validateEmail("test@example.com"), "Valid email should not throw")
+        
+        XCTAssertThrowsError(try model.validateEmail("invalid_email"), "Invalid email missing @ should throw") { error in
+            XCTAssertEqual(error as? ValidationError, ValidationError.invalidEmail)
+        }
+        
+        XCTAssertThrowsError(try model.validateEmail("invalid_email@a.a"), "Invalid email with only one domain character should throw") { error in
+            XCTAssertEqual(error as? ValidationError, ValidationError.invalidEmail)
+        }
+        
+        XCTAssertThrowsError(try model.validateEmail("invalid_email@a.ch."), "Invalid email with more than one dot should throw") { error in
+            XCTAssertEqual(error as? ValidationError, ValidationError.invalidEmail)
+        }
+        
+        XCTAssertThrowsError(try model.validateEmail("invalid_email@@a.ch"), "Invalid email with more than @ should throw") { error in
+            XCTAssertEqual(error as? ValidationError, ValidationError.invalidEmail)
+        }
+        
+        XCTAssertThrowsError(try model.validateEmail("test@.ch"), "Invalid email missing domain part should throw") { error in
+            XCTAssertEqual(error as? ValidationError, ValidationError.invalidEmail)
+        }
+        
+        XCTAssertThrowsError(try model.validateEmail("@a.ch"), "Invalid email missing local part should throw") { error in
+            XCTAssertEqual(error as? ValidationError, ValidationError.invalidEmail)
+        }
+        
+        XCTAssertThrowsError(try model.validateEmail("äüo@a.ch"), "Invalid email with non supported letters should throw") { error in
+            XCTAssertEqual(error as? ValidationError, ValidationError.invalidEmail)
+        }
+        
+        XCTAssertThrowsError(try model.validateEmail("%$@a.ch"), "Invalid email with non supported chars should throw") { error in
+            XCTAssertEqual(error as? ValidationError, ValidationError.invalidEmail)
+        }
+        
+        XCTAssertThrowsError(try model.validateEmail(""), "Empty email should throw") { error in
+            XCTAssertEqual(error as? ValidationError, ValidationError.invalidEmail)
         }
     }
-
 }

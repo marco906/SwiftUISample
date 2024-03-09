@@ -24,6 +24,7 @@
 		A95CAF842B9C6BB50088561E /* strings.py in Resources */ = {isa = PBXBuildFile; fileRef = A95CAF832B9C6BB50088561E /* strings.py */; };
 		A95CAF862B9C8F7B0088561E /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95CAF852B9C8F7B0088561E /* Strings.swift */; };
 		A95CAF882B9C96670088561E /* Makefile in Resources */ = {isa = PBXBuildFile; fileRef = A95CAF872B9C96670088561E /* Makefile */; };
+		A95CAF892B9CA78A0088561E /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90B64992B9B8DDC00DE7A53 /* RegisterViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +67,7 @@
 		A95CAF832B9C6BB50088561E /* strings.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = strings.py; sourceTree = "<group>"; };
 		A95CAF852B9C8F7B0088561E /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		A95CAF872B9C96670088561E /* Makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
+		A9A1A9FE2B9CAFD20024D7F6 /* UnitTests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; name = UnitTests.xctestplan; path = SwiftUISampleTests/UnitTests.xctestplan; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -228,6 +230,7 @@
 			isa = PBXGroup;
 			children = (
 				A942FC572B9B7ACD008CA2C8 /* SwiftUISampleTests.swift */,
+				A9A1A9FE2B9CAFD20024D7F6 /* UnitTests.xctestplan */,
 			);
 			path = SwiftUISampleTests;
 			sourceTree = "<group>";
@@ -312,7 +315,6 @@
 					};
 					A942FC522B9B7ACD008CA2C8 = {
 						CreatedOnToolsVersion = 15.3;
-						TestTargetID = A942FC412B9B7ACC008CA2C8;
 					};
 					A942FC5C2B9B7ACD008CA2C8 = {
 						CreatedOnToolsVersion = 15.3;
@@ -391,6 +393,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A942FC582B9B7ACD008CA2C8 /* SwiftUISampleTests.swift in Sources */,
+				A95CAF892B9CA78A0088561E /* RegisterViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -627,7 +630,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = "$(CURRENT_PROJECT_VERSION)";
 				DEVELOPMENT_TEAM = 8Q24JJ6J4V;
@@ -643,7 +645,6 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwiftUISample.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SwiftUISample";
 			};
 			name = Debug;
 		};
@@ -651,7 +652,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = "$(CURRENT_PROJECT_VERSION)";
 				DEVELOPMENT_TEAM = 8Q24JJ6J4V;
@@ -667,7 +667,6 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwiftUISample.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SwiftUISample";
 			};
 			name = Release;
 		};
