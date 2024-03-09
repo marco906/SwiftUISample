@@ -31,22 +31,23 @@ def generate_swift_class(strings):
     swift_code += "struct Strings {\n\n"
     
     for key, value in strings.items():
+        if value == None: 
+            continue
         args = []
 
         words = key.split()
         key_name = words[0] + ''.join(word.title() for word in words[1:])
         
-        if "%lld" in value:
-            # Find parameters in the value
-            start = value.find("%lld")
+        # Find parameters in the value
+        start = value.find("%lld")
+        arg_index = 0
+        while start != -1:
+            arg_index += 1
             end = start + 4
-            arg_index = 1
-            while start != -1:
-                arg_name = f"arg{arg_index}"
-                args.append(arg_name)
-                value = value[:start] + "\\(" + arg_name + ")" + value[end:]
-                start = value.find("%lld")
-                arg_index += 1
+            arg_name = f"arg{arg_index}"
+            args.append(arg_name)
+            value = value[:start] + "\\(" + arg_name + ")" + value[end:]
+            start = value.find("%lld")
         
         # Generate static property or static method based on parameters
         if len(args) > 0:
