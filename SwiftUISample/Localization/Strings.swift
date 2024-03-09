@@ -23,4 +23,6 @@ struct Strings {
 
     static let registerNavigationTitle: LocalizedStringKey = "registerNavigationTitle"
 
+    static let welcomeHeaderTitle: LocalizedStringKey = "welcomeHeaderTitle"
+
 }

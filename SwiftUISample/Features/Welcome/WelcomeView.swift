@@ -17,7 +17,7 @@ struct WelcomeView: View {
     }
     
     var body: some View {
-        Text("")
+        Text(Strings.welcomeHeaderTitle)
     }
 }
 
