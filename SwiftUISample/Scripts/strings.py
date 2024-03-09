@@ -2,8 +2,6 @@ import json
 import os
 import argparse
 
-import json
-
 def extract_strings(file_path):
     with open(file_path, 'r') as f:
         json_data = json.load(f)
