@@ -16,11 +16,11 @@ class RegisterViewModel: ObservableObject {
     
     @Published var validationErrors = Set<ValidationError>()
     
-    var store: Store { DefaultsStore.shared }
+    var store: Store = DefaultsStore.shared
     
     var onAction: ((RegisterModelAction) -> Void)?
     
-    var canRegister: Bool { state == .normal }
+    var canRegister: Bool { state == RegisterModelState.normal }
     
     func setup(onAction: @escaping (RegisterModelAction) -> Void) {
         self.onAction = onAction
@@ -66,7 +66,7 @@ class RegisterViewModel: ObservableObject {
         clearErrorFor(.invalidBirthday)
     }
     
-    private func validate() throws {
+    private func validateFields() throws {
         try validateName(name)
         try validateEmail(email)
         try validateBirthday(birthday)
@@ -81,19 +81,21 @@ class RegisterViewModel: ObservableObject {
         state = .loading
         
         do {
-            try validate()
+            try validateFields()
             try saveUser()
         } catch {
-            // TODO: display errors
+            var errorMsg: LocalizedStringKey = ""
+            
             switch error {
-            case let validationError as ValidationError:
-                break
-            case let storageError as StorageError:
-                break
+            case is ValidationError:
+                errorMsg = Strings.registerErrorValidationMsg
+            case is StorageError:
+                errorMsg = Strings.registerErrorSaveMsg
             default:
-                break
+                errorMsg = Strings.registerErrorGeneralMsg
             }
-            state = .error
+            
+            state = .error(msg: errorMsg)
             return
         }
         
@@ -102,10 +104,10 @@ class RegisterViewModel: ObservableObject {
     }
 }
 
-enum RegisterModelState {
+enum RegisterModelState: Equatable {
     case loading
     case normal
-    case error
+    case error(msg: LocalizedStringKey)
 }
 
 enum ValidationError: LocalizedError {

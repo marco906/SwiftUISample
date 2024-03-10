@@ -11,6 +11,39 @@
         }
       }
     },
+    "registerErrorGeneralMsg" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bei der Registrierung ist Fehler ist aufgetreten. Bitte versuche es erneut."
+          }
+        }
+      }
+    },
+    "registerErrorSaveMsg" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Beim Speichern der Daten ist ein Fehler aufgetreten, bitte versuche es erneut."
+          }
+        }
+      }
+    },
+    "registerErrorValidationMsg" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ein oder mehrere Felder sind ungültig. Bitte korrigiere die markierten Felder, um fortzufahren."
+          }
+        }
+      }
+    },
     "registerFieldBirthdayDescription" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -70,6 +103,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Name"
+          }
+        }
+      }
+    },
+    "registerHeaderDefaultMsg" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Registriere einen neuen Benutzer, um Zugang zu diesem Service zu erhalten."
           }
         }
       }

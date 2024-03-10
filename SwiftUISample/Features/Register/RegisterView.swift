@@ -29,11 +29,29 @@ struct RegisterView: View {
     
     var form: some View {
         Form {
+            header
             nameSection
             emailSection
             dateSection
             registerButton
         }
+    }
+    
+    @ViewBuilder
+    var header: some View {
+        Section {
+            switch model.state {
+            case .loading, .normal:
+                Text(Strings.registerHeaderDefaultMsg)
+            case let .error(msg):
+                Text(msg)
+            }
+        }
+        .font(.subheadline)
+        .listRowBackground(Color.clear)
+        .listSectionSeparator(.hidden)
+        .listRowInsets(EdgeInsets(top: 8, leading: 0, bottom: 0, trailing: 0))
+        .frame(maxWidth: .infinity, alignment: .leading)
     }
     
     var nameSection: some View {

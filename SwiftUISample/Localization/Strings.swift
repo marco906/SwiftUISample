@@ -9,6 +9,12 @@ struct Strings {
 
     static let registerButtonTitle: LocalizedStringKey = "registerButtonTitle"
 
+    static let registerErrorGeneralMsg: LocalizedStringKey = "registerErrorGeneralMsg"
+
+    static let registerErrorSaveMsg: LocalizedStringKey = "registerErrorSaveMsg"
+
+    static let registerErrorValidationMsg: LocalizedStringKey = "registerErrorValidationMsg"
+
     static let registerFieldBirthdayDescription: LocalizedStringKey = "registerFieldBirthdayDescription"
 
     static let registerFieldBirthdayTitle: LocalizedStringKey = "registerFieldBirthdayTitle"
@@ -20,6 +26,8 @@ struct Strings {
     static let registerFieldNameDescription: LocalizedStringKey = "registerFieldNameDescription"
 
     static let registerFieldNameTitle: LocalizedStringKey = "registerFieldNameTitle"
+
+    static let registerHeaderDefaultMsg: LocalizedStringKey = "registerHeaderDefaultMsg"
 
     static let registerNavigationTitle: LocalizedStringKey = "registerNavigationTitle"
 
