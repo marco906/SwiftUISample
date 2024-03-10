@@ -36,6 +36,8 @@
 		A992DF7F2B9DEA2A006EA567 /* WelcomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A992DF7E2B9DEA2A006EA567 /* WelcomeViewModel.swift */; };
 		A9A1AA002B9CD99D0024D7F6 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A1A9FF2B9CD99D0024D7F6 /* WelcomeView.swift */; };
 		A9DFE5852B9E5BE90085C3AE /* WelcomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A992DF7E2B9DEA2A006EA567 /* WelcomeViewModel.swift */; };
+		A9DFE5882B9E6E1A0085C3AE /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = A9DFE5872B9E6E1A0085C3AE /* Lottie */; };
+		A9DFE58B2B9E6E580085C3AE /* astronaut.json in Resources */ = {isa = PBXBuildFile; fileRef = A9DFE58A2B9E6E580085C3AE /* astronaut.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +86,7 @@
 		A992DF7E2B9DEA2A006EA567 /* WelcomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewModel.swift; sourceTree = "<group>"; };
 		A9A1A9FE2B9CAFD20024D7F6 /* UnitTests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; name = UnitTests.xctestplan; path = SwiftUISampleTests/UnitTests.xctestplan; sourceTree = SOURCE_ROOT; };
 		A9A1A9FF2B9CD99D0024D7F6 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
+		A9DFE58A2B9E6E580085C3AE /* astronaut.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = astronaut.json; path = ../../../../../Downloads/astronaut.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +94,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9DFE5882B9E6E1A0085C3AE /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -125,6 +129,7 @@
 			isa = PBXGroup;
 			children = (
 				A942FC492B9B7ACD008CA2C8 /* Assets.xcassets */,
+				A9DFE5892B9E6E290085C3AE /* Animations */,
 				A942FC4C2B9B7ACD008CA2C8 /* Preview Content */,
 			);
 			path = Assets;
@@ -265,6 +270,14 @@
 			path = SwiftUISampleUITests;
 			sourceTree = "<group>";
 		};
+		A9DFE5892B9E6E290085C3AE /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				A9DFE58A2B9E6E580085C3AE /* astronaut.json */,
+			);
+			path = Animations;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -281,6 +294,9 @@
 			dependencies = (
 			);
 			name = SwiftUISample;
+			packageProductDependencies = (
+				A9DFE5872B9E6E1A0085C3AE /* Lottie */,
+			);
 			productName = SwiftUISample;
 			productReference = A942FC422B9B7ACC008CA2C8 /* SwiftUISample.app */;
 			productType = "com.apple.product-type.application";
@@ -352,6 +368,9 @@
 				Base,
 			);
 			mainGroup = A942FC392B9B7ACC008CA2C8;
+			packageReferences = (
+				A9DFE5862B9E6E1A0085C3AE /* XCRemoteSwiftPackageReference "lottie-spm" */,
+			);
 			productRefGroup = A942FC432B9B7ACC008CA2C8 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -370,6 +389,7 @@
 			files = (
 				A942FC4E2B9B7ACD008CA2C8 /* Preview Assets.xcassets in Resources */,
 				A95CAF802B9C67ED0088561E /* Localizable.xcstrings in Resources */,
+				A9DFE58B2B9E6E580085C3AE /* astronaut.json in Resources */,
 				A942FC4A2B9B7ACD008CA2C8 /* Assets.xcassets in Resources */,
 				A95CAF882B9C96670088561E /* Makefile in Resources */,
 				A95CAF842B9C6BB50088561E /* strings.py in Resources */,
@@ -788,6 +808,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A9DFE5862B9E6E1A0085C3AE /* XCRemoteSwiftPackageReference "lottie-spm" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-spm.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.4.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A9DFE5872B9E6E1A0085C3AE /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A9DFE5862B9E6E1A0085C3AE /* XCRemoteSwiftPackageReference "lottie-spm" */;
+			productName = Lottie;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A942FC3A2B9B7ACC008CA2C8 /* Project object */;
 }

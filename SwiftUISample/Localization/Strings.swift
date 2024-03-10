@@ -45,6 +45,8 @@ struct Strings {
 
     static let registerValidationErrorNameMsg: LocalizedStringKey = "registerValidationErrorNameMsg"
 
+    static let welcomeAnimationDescription: LocalizedStringKey = "welcomeAnimationDescription"
+
     static let welcomeErrorSectionTitle: LocalizedStringKey = "welcomeErrorSectionTitle"
 
     static let welcomeHeaderMsg: LocalizedStringKey = "welcomeHeaderMsg"

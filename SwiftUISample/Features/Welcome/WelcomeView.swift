@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Lottie
 
 struct WelcomeViewArguments: Hashable {
     var user: User? = nil
@@ -42,20 +43,15 @@ struct WelcomeView: View {
     func welcome(user: User) -> some View {
         List {
             Section(Strings.welcomeHeaderSectionTitle) {
-                VStack(alignment: .leading) {
-                    Image(systemName: "person.crop.circle")
-                        .foregroundStyle(Color.accentColor)
-                        .font(.system(size: 32))
-                        .fontWeight(.semibold)
-                        .padding(.bottom, 2)
+                VStack(alignment: .leading, spacing: 0) {
                     Text(Strings.welcomeHeaderTitle(arg1: user.name))
                         .font(.title3)
-                        .fontWeight(.semibold)
+                        .fontWeight(.bold)
                     Text(Strings.welcomeHeaderMsg)
                         .font(.callout)
                         .foregroundStyle(.secondary)
+                        .padding(.top, 10)
                 }
-                .padding(.vertical, 8)
             }
             
             Section(Strings.welcomeProfileSectionTitle) {
@@ -63,8 +59,19 @@ struct WelcomeView: View {
                 LabeledContent(Strings.registerFieldEmailTitle, value: user.email)
                 LabeledContent(Strings.registerFieldBirthdayTitle, value: user.birthdayDisplay)
             }
+            
+            animation
         }
         .navigationTitle(Strings.welcomeNavigationTitle)
+    }
+    
+    var animation: some View {
+        LottieView(animation: .named("astronaut"))
+            .animationSpeed(1.5)
+            .looping()
+            .frame(height: 250)
+            .listRowBackground(Color.clear)
+            .accessibilityLabel(Strings.welcomeAnimationDescription)
     }
     
     func error(_ msg: LocalizedStringKey) -> some View {

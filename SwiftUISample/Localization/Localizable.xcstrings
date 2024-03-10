@@ -205,6 +205,17 @@
         }
       }
     },
+    "welcomeAnimationDescription" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dekorative Animation"
+          }
+        }
+      }
+    },
     "welcomeErrorSectionTitle" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -222,7 +233,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Vielen Dank für deine Registrierung"
+            "value" : "Vielen Dank für deine Registrierung."
           }
         }
       }
