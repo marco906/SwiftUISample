@@ -31,6 +31,12 @@ struct Strings {
 
     static let registerNavigationTitle: LocalizedStringKey = "registerNavigationTitle"
 
+    static let registerValidationErrorBirthdayMsg: LocalizedStringKey = "registerValidationErrorBirthdayMsg"
+
+    static let registerValidationErrorEmailMsg: LocalizedStringKey = "registerValidationErrorEmailMsg"
+
+    static let registerValidationErrorNameMsg: LocalizedStringKey = "registerValidationErrorNameMsg"
+
     static let welcomeHeaderTitle: LocalizedStringKey = "welcomeHeaderTitle"
 
 }

@@ -30,9 +30,9 @@ struct RegisterView: View {
     var form: some View {
         Form {
             header
-            nameSection
-            emailSection
-            dateSection
+            formField(.name)
+            formField(.email)
+            formField(.birthday)
             registerButton
         }
     }
@@ -40,13 +40,17 @@ struct RegisterView: View {
     @ViewBuilder
     var header: some View {
         Section {
+
+        } header: {
             switch model.state {
             case .loading, .normal:
                 Text(Strings.registerHeaderDefaultMsg)
             case let .error(msg):
                 Text(msg)
+                    .foregroundStyle(.red)
             }
         }
+        .textCase(nil)
         .font(.subheadline)
         .listRowBackground(Color.clear)
         .listSectionSeparator(.hidden)
@@ -54,29 +58,30 @@ struct RegisterView: View {
         .frame(maxWidth: .infinity, alignment: .leading)
     }
     
-    var nameSection: some View {
-        Section(Strings.registerFieldNameTitle) {
-            TextField(Strings.registerFieldNameDescription, text: $model.name)
-        }
-    }
-    
-    var emailSection: some View {
-        Section(Strings.registerFieldEmailTitle) {
-            TextField(Strings.registerFieldEmailDescription, text: $model.email)
-                .keyboardType(.emailAddress)
-        }
-    }
-    
-    var dateSection: some View {
-        Section(Strings.registerFieldBirthdayTitle) {
-            DatePicker(Strings.registerFieldBirthdayDescription, selection: $model.birthday, displayedComponents: .date)
-                .datePickerStyle(.automatic)
-        }
-    }
-    
     var registerButton: some View {
         Button(Strings.registerButtonTitle, action: clickedRegister)
             .disabled(!model.canRegister)
+    }
+    
+    @ViewBuilder
+    func formField(_ field: RegisterFormField) -> some View {
+        Section {
+            switch field {
+            case .name:
+                TextField(field.description, text: $model.name)
+            case .email:
+                TextField(field.description, text: $model.email)
+                    .keyboardType(.emailAddress)
+            case .birthday:
+                DatePicker(field.description, selection: $model.birthday, displayedComponents: .date)
+                    .datePickerStyle(.automatic)
+            }
+        } header: {
+            Text(field.title)
+        } footer: {
+            Text(model.errorForField(field)?.msg ?? "")
+                .foregroundStyle(.red)
+        }
     }
     
     func start() {

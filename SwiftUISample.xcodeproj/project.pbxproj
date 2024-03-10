@@ -32,6 +32,7 @@
 		A992DF7A2B9DBB69006EA567 /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = A992DF772B9DAF53006EA567 /* Keys.swift */; };
 		A992DF7B2B9DBB8C006EA567 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90B64A42B9B969500DE7A53 /* User.swift */; };
 		A992DF7C2B9DBB92006EA567 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A992DF752B9DAADC006EA567 /* Parser.swift */; };
+		A992DF7D2B9DCE29006EA567 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95CAF852B9C8F7B0088561E /* Strings.swift */; };
 		A9A1AA002B9CD99D0024D7F6 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A1A9FF2B9CD99D0024D7F6 /* WelcomeView.swift */; };
 /* End PBXBuildFile section */
 
@@ -418,6 +419,7 @@
 				A95CAF892B9CA78A0088561E /* RegisterViewModel.swift in Sources */,
 				A992DF7B2B9DBB8C006EA567 /* User.swift in Sources */,
 				A992DF792B9DBB59006EA567 /* Storage.swift in Sources */,
+				A992DF7D2B9DCE29006EA567 /* Strings.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

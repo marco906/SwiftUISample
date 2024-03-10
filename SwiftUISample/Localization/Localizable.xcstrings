@@ -128,6 +128,39 @@
         }
       }
     },
+    "registerValidationErrorBirthdayMsg" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fehler: Das Datum muss zwischen dem 1. Januar 1900 und dem 31. Dezember 2022 liegen."
+          }
+        }
+      }
+    },
+    "registerValidationErrorEmailMsg" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fehler: Bitte gib eine gültige Email Adresse an."
+          }
+        }
+      }
+    },
+    "registerValidationErrorNameMsg" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fehler: Name darf nicht leer sein."
+          }
+        }
+      }
+    },
     "welcomeHeaderTitle" : {
       "localizations" : {
         "de" : {

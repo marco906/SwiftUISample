@@ -14,7 +14,7 @@ class RegisterViewModel: ObservableObject {
     @Published var email = ""
     @Published var birthday = Date.now
     
-    @Published var validationErrors = Set<ValidationError>()
+    @Published var validationErrors = [RegisterFormField:ValidationError]()
     
     var store: Store = DefaultsStore.shared
     
@@ -26,29 +26,33 @@ class RegisterViewModel: ObservableObject {
         self.onAction = onAction
     }
     
-    func addErrorFor(_ error: ValidationError) {
-        validationErrors.insert(error)
+    func errorForField(_ field: RegisterFormField) -> ValidationError? {
+        validationErrors[field]
     }
     
-    func clearErrorFor(_ error: ValidationError) {
-        validationErrors.remove(error)
+    private func addErrorFor(_ field: RegisterFormField, error: ValidationError) {
+        validationErrors[field] = error
+    }
+    
+    private func clearErrorFor(_ field: RegisterFormField) {
+        validationErrors.removeValue(forKey: field)
     }
     
     func validateName(_ name: String) throws {
         guard !name.isEmpty else {
-            addErrorFor(.invalidName)
+            addErrorFor(.name, error: .invalidName)
             throw ValidationError.invalidName
         }
-        clearErrorFor(.invalidName)
+        clearErrorFor(.name)
     }
     
     func validateEmail(_ email: String) throws {
         let pattern = /([a-zA-Z0-9._-]+)(@{1})([a-zA-Z0-9.-]+)(.{1})([a-zA-Z]{2,})/
         guard email.wholeMatch(of: pattern) != nil else {
-            addErrorFor(.invalidEmail)
+            addErrorFor(.email, error: .invalidEmail)
             throw ValidationError.invalidEmail
         }
-        clearErrorFor(.invalidEmail)
+        clearErrorFor(.email)
     }
     
     func validateBirthday(_ date: Date) throws {
@@ -59,11 +63,11 @@ class RegisterViewModel: ObservableObject {
         guard let minDate = calendar.date(from: minDateComponents),
               let maxDate = calendar.date(from: maxDateComponents),
               date >= minDate && date <= maxDate else {
-            addErrorFor(.invalidEmail)
+            addErrorFor(.birthday, error: .invalidBirthday)
             throw ValidationError.invalidBirthday
         }
         
-        clearErrorFor(.invalidBirthday)
+        clearErrorFor(.birthday)
     }
     
     private func validateFields() throws {
@@ -110,12 +114,53 @@ enum RegisterModelState: Equatable {
     case error(msg: LocalizedStringKey)
 }
 
+enum RegisterFormField: Int, Hashable {
+    case name
+    case email
+    case birthday
+    
+    var title: LocalizedStringKey {
+        switch self {
+        case .name:
+            Strings.registerFieldNameTitle
+        case .email:
+            Strings.registerFieldEmailTitle
+        case .birthday:
+            Strings.registerFieldBirthdayTitle
+        }
+    }
+    
+    var description: LocalizedStringKey {
+        switch self {
+        case .name:
+            Strings.registerFieldNameDescription
+        case .email:
+            Strings.registerFieldEmailDescription
+        case .birthday:
+            Strings.registerFieldBirthdayDescription
+        }
+    }
+}
+
 enum ValidationError: LocalizedError {
     case invalidName
     case invalidEmail
     case invalidBirthday
     
-    // TODO: Add error descriptions
+    var msg: LocalizedStringKey {
+        switch self {
+        case .invalidName:
+            Strings.registerValidationErrorNameMsg
+        case .invalidEmail:
+            Strings.registerValidationErrorEmailMsg
+        case .invalidBirthday:
+            Strings.registerValidationErrorBirthdayMsg
+        }
+    }
+    
+    var errorDescription: String {
+        return NSLocalizedString("\(msg)", comment: "")
+    }
 }
 
 enum RegisterModelAction {
