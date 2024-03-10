@@ -68,8 +68,9 @@ class RegisterViewModel: ObservableObject {
     }
     
     func validateEmail(_ email: String) throws {
-        let pattern = /([a-zA-Z0-9._-]+)(@{1})([a-zA-Z0-9.-]+)(.{1})([a-zA-Z]{2,})/
-        guard email.wholeMatch(of: pattern) != nil else {
+        let pattern = /([a-zA-Z0-9._-]+)(@{1})([a-zA-Z0-9-]+)(.{1})([a-zA-Z]{2,})/
+        let invalidCombinations = ["..", "@-", "-."]
+        guard email.wholeMatch(of: pattern) != nil && invalidCombinations.filter({ email.contains($0) }).isEmpty else {
             addErrorFor(.email, error: .invalidEmail)
             throw ValidationError.invalidEmail
         }
@@ -100,8 +101,7 @@ class RegisterViewModel: ObservableObject {
         }
     }
     
-    private func saveUser() throws {
-        let user = User(name: name, email: email, birthday: birthday)
+    func saveUser(_ user: User) throws {
         try store.setJSONObject(user, forKey: Keys.Storage.currentUser)
     }
     
@@ -110,7 +110,8 @@ class RegisterViewModel: ObservableObject {
         
         do {
             try validateAllFields()
-            try saveUser()
+            let user = User(name: name, email: email, birthday: birthday)
+            try saveUser(user)
         } catch {
             firstTime = false
             handleError(error)
