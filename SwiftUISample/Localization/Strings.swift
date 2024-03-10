@@ -13,6 +13,8 @@ struct Strings {
 
     static let errorGeneralTitle: LocalizedStringKey = "errorGeneralTitle"
 
+    static let loadingDescription: LocalizedStringKey = "loadingDescription"
+
     static let registerButtonTitle: LocalizedStringKey = "registerButtonTitle"
 
     static let registerErrorGeneralMsg: LocalizedStringKey = "registerErrorGeneralMsg"

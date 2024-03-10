@@ -34,6 +34,17 @@
         }
       }
     },
+    "loadingDescription" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lade Daten..."
+          }
+        }
+      }
+    },
     "registerButtonTitle" : {
       "localizations" : {
         "de" : {

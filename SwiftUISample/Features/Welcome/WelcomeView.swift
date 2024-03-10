@@ -31,7 +31,7 @@ struct WelcomeView: View {
     var content: some View {
         switch model.state {
         case .loading:
-            ProgressView()
+            ProgressView(Strings.loadingDescription)
         case let .normal(user):
             welcome(user: user)
         case let .error(msg):
