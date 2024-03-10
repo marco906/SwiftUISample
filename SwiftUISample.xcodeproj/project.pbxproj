@@ -33,6 +33,7 @@
 		A992DF7B2B9DBB8C006EA567 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90B64A42B9B969500DE7A53 /* User.swift */; };
 		A992DF7C2B9DBB92006EA567 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A992DF752B9DAADC006EA567 /* Parser.swift */; };
 		A992DF7D2B9DCE29006EA567 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95CAF852B9C8F7B0088561E /* Strings.swift */; };
+		A992DF7F2B9DEA2A006EA567 /* WelcomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A992DF7E2B9DEA2A006EA567 /* WelcomeViewModel.swift */; };
 		A9A1AA002B9CD99D0024D7F6 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A1A9FF2B9CD99D0024D7F6 /* WelcomeView.swift */; };
 /* End PBXBuildFile section */
 
@@ -79,6 +80,7 @@
 		A992DF732B9D9BFD006EA567 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		A992DF752B9DAADC006EA567 /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
 		A992DF772B9DAF53006EA567 /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
+		A992DF7E2B9DEA2A006EA567 /* WelcomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewModel.swift; sourceTree = "<group>"; };
 		A9A1A9FE2B9CAFD20024D7F6 /* UnitTests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; name = UnitTests.xctestplan; path = SwiftUISampleTests/UnitTests.xctestplan; sourceTree = SOURCE_ROOT; };
 		A9A1A9FF2B9CD99D0024D7F6 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -140,6 +142,7 @@
 			isa = PBXGroup;
 			children = (
 				A9A1A9FF2B9CD99D0024D7F6 /* WelcomeView.swift */,
+				A992DF7E2B9DEA2A006EA567 /* WelcomeViewModel.swift */,
 			);
 			path = Welcome;
 			sourceTree = "<group>";
@@ -396,6 +399,7 @@
 				A90B64982B9B8D7700DE7A53 /* RegisterView.swift in Sources */,
 				A992DF742B9D9BFD006EA567 /* Storage.swift in Sources */,
 				A95CAF862B9C8F7B0088561E /* Strings.swift in Sources */,
+				A992DF7F2B9DEA2A006EA567 /* WelcomeViewModel.swift in Sources */,
 				A90B64A02B9B8EFD00DE7A53 /* Routes.swift in Sources */,
 				A992DF782B9DAF53006EA567 /* Keys.swift in Sources */,
 				A90B649E2B9B8EF200DE7A53 /* Navigator.swift in Sources */,

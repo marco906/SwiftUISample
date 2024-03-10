@@ -123,7 +123,7 @@ class RegisterViewModel: ObservableObject {
     
     func handleError(_ error: Error) {
         if firstTime { return }
-        var errorMsg: LocalizedStringKey = ""
+        var errorMsg: LocalizedStringKey
         switch error {
         case is ValidationError:
             errorMsg = Strings.registerErrorValidationMsg
@@ -188,7 +188,8 @@ enum ValidationError: LocalizedError {
     }
     
     var errorDescription: String {
-        return NSLocalizedString("\(msg)", comment: "")
+        let key: String = String("\(msg)")
+        return NSLocalizedString(key, comment: "")
     }
 }
 

@@ -87,8 +87,10 @@ struct RegisterView: View {
         } header: {
             Text(field.title)
         } footer: {
-            Text(model.errorForField(field)?.msg ?? "")
-                .foregroundStyle(.red)
+            if let errorMsg = model.errorForField(field)?.msg {
+                Text(errorMsg)
+                    .foregroundStyle(.red)
+            }
         }
     }
     

@@ -1,6 +1,9 @@
 {
   "sourceLanguage" : "de",
   "strings" : {
+    "Hallo, %@!" : {
+
+    },
     "registerButtonTitle" : {
       "localizations" : {
         "de" : {
