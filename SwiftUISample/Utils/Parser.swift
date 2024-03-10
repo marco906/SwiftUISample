@@ -19,19 +19,19 @@ class JSONParser
             let result = try decoder.decode(type.self, from: data)
             return result
         }
-        catch DecodingError.dataCorrupted(let context)
+        catch DecodingError.dataCorrupted(_)
         {
             throw JSONParsingError.dataCorrupted
         }
-        catch DecodingError.keyNotFound(let key, let context)
+        catch DecodingError.keyNotFound(let key, _)
         {
             throw JSONParsingError.keyNotFound(key: key.stringValue)
         }
-        catch DecodingError.valueNotFound(let value, let context)
+        catch DecodingError.valueNotFound(let value, _)
         {
             throw JSONParsingError.valueNotFound(value: "\(value)")
         }
-        catch DecodingError.typeMismatch(let type, let context)
+        catch DecodingError.typeMismatch(let type, _)
         {
             throw JSONParsingError.typeMismatch(type: "\(type)")
         }
