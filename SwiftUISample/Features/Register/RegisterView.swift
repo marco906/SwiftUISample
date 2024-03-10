@@ -77,10 +77,15 @@ struct RegisterView: View {
                         model.validateField(.email)
                     }
             case .birthday:
-                DatePicker(field.description, selection: $model.birthday, displayedComponents: .date)
-                    .onChange(of: model.birthday) { newValue in
-                        model.validateField(.birthday)
-                    }
+                DatePicker(selection: $model.birthday, displayedComponents: .date) {
+                    Text(field.description)
+                        .foregroundStyle(.tertiary)
+                }
+                .accessibilityLabel(field.title)
+                .accessibilityValue(model.birthday.formatted(date: .abbreviated, time: .omitted))
+                .onChange(of: model.birthday) { newValue in
+                    model.validateField(.birthday)
+                }
             }
         } header: {
             Text(field.title)
@@ -90,6 +95,7 @@ struct RegisterView: View {
                     .foregroundStyle(.red)
             }
         }
+        .accessibilityLabel(field.title)
     }
     
     func start() {
@@ -113,8 +119,8 @@ struct RegisterView: View {
 }
 
 #Preview {
-    NavigationStack {
+    //NavigationStack {
         RegisterView(RegisterViewArguments())
             .withPreviewEnvironments()
-    }
+    //}
 }
