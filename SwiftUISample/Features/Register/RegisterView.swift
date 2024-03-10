@@ -37,11 +37,8 @@ struct RegisterView: View {
         }
     }
     
-    @ViewBuilder
     var header: some View {
-        Section {
-
-        } header: {
+        Group {
             switch model.state {
             case .loading, .normal:
                 Text(Strings.registerHeaderDefaultMsg)
@@ -50,12 +47,10 @@ struct RegisterView: View {
                     .foregroundStyle(.red)
             }
         }
-        .textCase(nil)
         .font(.subheadline)
         .listRowBackground(Color.clear)
         .listSectionSeparator(.hidden)
         .listRowInsets(EdgeInsets(top: 8, leading: 0, bottom: 0, trailing: 0))
-        .frame(maxWidth: .infinity, alignment: .leading)
     }
     
     var registerButton: some View {
@@ -69,12 +64,15 @@ struct RegisterView: View {
             switch field {
             case .name:
                 TextField(field.description, text: $model.name)
+                    .autocorrectionDisabled()
                     .onChange(of: model.name) { newValue in
                         model.validateField(.name)
                     }
             case .email:
                 TextField(field.description, text: $model.email)
                     .keyboardType(.emailAddress)
+                    .autocorrectionDisabled()
+                    .textInputAutocapitalization(.never)
                     .onChange(of: model.email) { newValue in
                         model.validateField(.email)
                     }
