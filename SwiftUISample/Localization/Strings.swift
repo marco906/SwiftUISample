@@ -7,6 +7,12 @@ import SwiftUI
 
 struct Strings {
 
+    static let buttonRetry: LocalizedStringKey = "buttonRetry"
+
+    static let errorGeneralMsg: LocalizedStringKey = "errorGeneralMsg"
+
+    static let errorGeneralTitle: LocalizedStringKey = "errorGeneralTitle"
+
     static let registerButtonTitle: LocalizedStringKey = "registerButtonTitle"
 
     static let registerErrorGeneralMsg: LocalizedStringKey = "registerErrorGeneralMsg"
@@ -37,6 +43,20 @@ struct Strings {
 
     static let registerValidationErrorNameMsg: LocalizedStringKey = "registerValidationErrorNameMsg"
 
-    static let welcomeHeaderTitle: LocalizedStringKey = "welcomeHeaderTitle"
+    static let welcomeErrorSectionTitle: LocalizedStringKey = "welcomeErrorSectionTitle"
+
+    static let welcomeHeaderMsg: LocalizedStringKey = "welcomeHeaderMsg"
+
+    static let welcomeHeaderSectionTitle: LocalizedStringKey = "welcomeHeaderSectionTitle"
+
+    static func welcomeHeaderTitle(arg1: String) -> LocalizedStringResource {
+        LocalizedStringResource(
+            "welcomeHeaderTitle",
+            defaultValue: "Hallo, \(arg1)!")
+    }
+
+    static let welcomeNavigationTitle: LocalizedStringKey = "welcomeNavigationTitle"
+
+    static let welcomeProfileSectionTitle: LocalizedStringKey = "welcomeProfileSectionTitle"
 
 }

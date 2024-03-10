@@ -13,4 +13,5 @@ struct User: Identifiable, Equatable, Hashable, Codable {
     var birthday: Date
     
     var id: String { email }
+    var birthdayDisplay: String { birthday.formatted(date: .abbreviated, time: .omitted) }
 }

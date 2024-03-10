@@ -13,7 +13,7 @@ struct WelcomeViewArguments: Hashable {
 
 struct WelcomeView: View {
     @StateObject var model = WelcomeViewModel()
-    var user: User?
+    let user: User?
     
     init(_ args: WelcomeViewArguments) {
         self.user = args.user
@@ -21,6 +21,7 @@ struct WelcomeView: View {
     
     var body: some View {
         content
+            .navigationBarBackButtonHidden()
             .task {
                 start()
             }
@@ -34,12 +35,63 @@ struct WelcomeView: View {
         case let .normal(user):
             welcome(user: user)
         case let .error(msg):
-            Text(msg)
+            error(msg)
         }
     }
     
     func welcome(user: User) -> some View {
-        Text("Hallo, \(user.name)!") // TODO: localize
+        List {
+            Section(Strings.welcomeHeaderSectionTitle) {
+                VStack(alignment: .leading) {
+                    Image(systemName: "person.crop.circle")
+                        .foregroundStyle(Color.accentColor)
+                        .font(.system(size: 32))
+                        .fontWeight(.semibold)
+                        .padding(.bottom, 2)
+                    Text(Strings.welcomeHeaderTitle(arg1: user.name))
+                        .font(.title3)
+                        .fontWeight(.semibold)
+                    Text(Strings.welcomeHeaderMsg)
+                        .font(.callout)
+                        .foregroundStyle(.secondary)
+                }
+                .padding(.vertical, 8)
+            }
+            
+            Section(Strings.welcomeProfileSectionTitle) {
+                LabeledContent(Strings.registerFieldNameTitle, value: user.name)
+                LabeledContent(Strings.registerFieldEmailTitle, value: user.email)
+                LabeledContent(Strings.registerFieldBirthdayTitle, value: user.birthdayDisplay)
+            }
+        }
+        .navigationTitle(Strings.welcomeNavigationTitle)
+    }
+    
+    func error(_ msg: LocalizedStringKey) -> some View {
+        List {
+            Section(Strings.welcomeErrorSectionTitle) {
+                VStack(alignment: .leading) {
+                    Image(systemName: "exclamationmark.triangle")
+                        .foregroundStyle(Color.red)
+                        .font(.system(size: 32))
+                        .fontWeight(.semibold)
+                        .padding(.bottom, 2)
+                    Text(Strings.errorGeneralTitle)
+                        .font(.title3)
+                        .fontWeight(.semibold)
+                    Text(msg)
+                        .font(.callout)
+                        .foregroundStyle(.secondary)
+                }
+                .padding(.vertical, 8)
+            }
+            
+            Section {
+                Button(Strings.buttonRetry) {
+                    model.reload()
+                }
+            }
+        }
     }
     
     func start() {
@@ -49,7 +101,9 @@ struct WelcomeView: View {
 }
 
 #Preview {
-    WelcomeView(
-        WelcomeViewArguments(user: User(name: "Max Mustermann", email: "max.mustermann@example.com", birthday: Date.now))
-    )
+    NavigationStack {
+        WelcomeView(
+            WelcomeViewArguments(user: User(name: "Max Muster", email: "max.mustermann@example.com", birthday: Date.now))
+        )
+    }
 }

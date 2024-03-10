@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 
+@MainActor
 class WelcomeViewModel: ObservableObject {
     @Published var state = WelcomeModelState.loading
     @Published var user: User?
@@ -18,7 +19,7 @@ class WelcomeViewModel: ObservableObject {
         self.user = user
     }
     
-    func start() {
+    func reload() {
         if state != .loading {
             state = .loading
         }
@@ -28,6 +29,10 @@ class WelcomeViewModel: ObservableObject {
         } catch {
             handleError(error)
         }
+    }
+    
+    func start() {
+        reload()
     }
     
     func fetchCurrentUserIfNedded() throws {
@@ -46,8 +51,7 @@ class WelcomeViewModel: ObservableObject {
     }
     
     func handleError(_ error: Error) {
-        // TODO: Handle Error
-        //state = .error()
+        state = .error(msg: Strings.registerErrorGeneralMsg)
     }
 }
 

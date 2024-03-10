@@ -1,8 +1,38 @@
 {
   "sourceLanguage" : "de",
   "strings" : {
-    "Hallo, %@!" : {
-
+    "buttonRetry" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Erneut versuchen"
+          }
+        }
+      }
+    },
+    "errorGeneralMsg" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Es ist ein Fehler aufgetreten. Bitte versuche es erneut."
+          }
+        }
+      }
+    },
+    "errorGeneralTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fehler"
+          }
+        }
+      }
     },
     "registerButtonTitle" : {
       "localizations" : {
@@ -164,12 +194,68 @@
         }
       }
     },
+    "welcomeErrorSectionTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Profil konnte nicht geladen werden"
+          }
+        }
+      }
+    },
+    "welcomeHeaderMsg" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vielen Dank für deine Registrierung"
+          }
+        }
+      }
+    },
+    "welcomeHeaderSectionTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Du bist startklar"
+          }
+        }
+      }
+    },
     "welcomeHeaderTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hallo, %@!"
+          }
+        }
+      }
+    },
+    "welcomeNavigationTitle" : {
+      "extractionState" : "manual",
       "localizations" : {
         "de" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Willkommen"
+          }
+        }
+      }
+    },
+    "welcomeProfileSectionTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dein Profil"
           }
         }
       }
