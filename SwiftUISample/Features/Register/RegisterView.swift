@@ -41,10 +41,9 @@ struct RegisterView: View {
         Group {
             switch model.state {
             case .loading, .normal:
-                Text(Strings.registerHeaderDefaultMsg)
+                dotBanner(msg: Strings.registerHeaderDefaultMsg)
             case let .error(msg):
-                Text(msg)
-                    .foregroundStyle(.red)
+                dotBanner(msg: msg, color: .red)
             }
         }
         .font(.subheadline)
@@ -53,9 +52,16 @@ struct RegisterView: View {
         .listRowInsets(EdgeInsets(top: 8, leading: 0, bottom: 0, trailing: 0))
     }
     
-    var registerButton: some View {
-        Button(Strings.registerButtonTitle, action: clickedRegister)
-            .disabled(!model.canSubmit)
+    func dotBanner(msg: LocalizedStringKey, color: Color = Color.accentColor) -> some View {
+        HStack(alignment: .top) {
+            Image(systemName: "circle.fill")
+                .font(.system(size: 8))
+                .padding(.top, 4)
+                .padding(.leading, 2)
+                .foregroundStyle(color)
+            Text(msg)
+                .foregroundStyle(Color.secondary)
+        }
     }
     
     @ViewBuilder
@@ -81,6 +87,7 @@ struct RegisterView: View {
                     Text(field.description)
                         .foregroundStyle(.tertiary)
                 }
+                .listRowBackground(Color.clear)
                 .accessibilityLabel(field.title)
                 .accessibilityValue(model.birthday.formatted(date: .abbreviated, time: .omitted))
                 .onChange(of: model.birthday) { newValue in
@@ -96,6 +103,19 @@ struct RegisterView: View {
             }
         }
         .accessibilityLabel(field.title)
+    }
+    
+    var registerButton: some View {
+        Button(action: clickedRegister) {
+            Text(Strings.registerButtonTitle)
+                .font(.headline)
+                .padding(.vertical, 4)
+                .frame(maxWidth: .infinity)
+        }
+        .padding(.top)
+        .listRowBackground(Color.clear)
+        .buttonStyle(.borderedProminent)
+        .disabled(!model.canSubmit)
     }
     
     func start() {
@@ -119,8 +139,8 @@ struct RegisterView: View {
 }
 
 #Preview {
-    //NavigationStack {
+    NavigationStack {
         RegisterView(RegisterViewArguments())
             .withPreviewEnvironments()
-    //}
+    }
 }
