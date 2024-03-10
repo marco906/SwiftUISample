@@ -13,6 +13,7 @@ class RegisterViewModel: ObservableObject {
     @Published var name = ""
     @Published var email = ""
     @Published var birthday = Date.now
+    @Published var firstTime = true
     
     @Published var validationErrors = [RegisterFormField:ValidationError]()
     
@@ -20,14 +21,16 @@ class RegisterViewModel: ObservableObject {
     
     var onAction: ((RegisterModelAction) -> Void)?
     
-    var canRegister: Bool { state == RegisterModelState.normal }
+    var canSubmit: Bool { validationErrors.isEmpty || firstTime }
+    var showValidationErrors: Bool { !firstTime }
     
     func setup(onAction: @escaping (RegisterModelAction) -> Void) {
         self.onAction = onAction
     }
     
     func errorForField(_ field: RegisterFormField) -> ValidationError? {
-        validationErrors[field]
+        guard showValidationErrors else { return nil }
+        return validationErrors[field]
     }
     
     private func addErrorFor(_ field: RegisterFormField, error: ValidationError) {
@@ -36,6 +39,24 @@ class RegisterViewModel: ObservableObject {
     
     private func clearErrorFor(_ field: RegisterFormField) {
         validationErrors.removeValue(forKey: field)
+    }
+    
+    func validateField(_ field: RegisterFormField) {
+        do {
+            switch field {
+            case .name:
+                try validateName(name)
+            case .email:
+                try validateEmail(email)
+            case .birthday:
+                try validateBirthday(birthday)
+            }
+        } catch {
+            handleError(error)
+        }
+        if validationErrors.isEmpty {
+            state = .normal
+        }
     }
     
     func validateName(_ name: String) throws {
@@ -70,10 +91,13 @@ class RegisterViewModel: ObservableObject {
         clearErrorFor(.birthday)
     }
     
-    private func validateFields() throws {
-        try validateName(name)
-        try validateEmail(email)
-        try validateBirthday(birthday)
+    private func validateAllFields() throws {
+        for field in RegisterFormField.allCases {
+            validateField(field)
+        }
+        if let error = validationErrors.values.first {
+            throw error
+        }
     }
     
     private func saveUser() throws {
@@ -85,26 +109,31 @@ class RegisterViewModel: ObservableObject {
         state = .loading
         
         do {
-            try validateFields()
+            try validateAllFields()
             try saveUser()
         } catch {
-            var errorMsg: LocalizedStringKey = ""
-            
-            switch error {
-            case is ValidationError:
-                errorMsg = Strings.registerErrorValidationMsg
-            case is StorageError:
-                errorMsg = Strings.registerErrorSaveMsg
-            default:
-                errorMsg = Strings.registerErrorGeneralMsg
-            }
-            
-            state = .error(msg: errorMsg)
+            firstTime = false
+            handleError(error)
             return
         }
         
         state = .normal
         onAction?(.success)
+    }
+    
+    func handleError(_ error: Error) {
+        if firstTime { return }
+        var errorMsg: LocalizedStringKey = ""
+        switch error {
+        case is ValidationError:
+            errorMsg = Strings.registerErrorValidationMsg
+        case is StorageError:
+            errorMsg = Strings.registerErrorSaveMsg
+        default:
+            errorMsg = Strings.registerErrorGeneralMsg
+        }
+        
+        state = .error(msg: errorMsg)
     }
 }
 
@@ -114,7 +143,7 @@ enum RegisterModelState: Equatable {
     case error(msg: LocalizedStringKey)
 }
 
-enum RegisterFormField: Int, Hashable {
+enum RegisterFormField: Int, Hashable, CaseIterable {
     case name
     case email
     case birthday

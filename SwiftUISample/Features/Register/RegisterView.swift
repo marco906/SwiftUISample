@@ -60,7 +60,7 @@ struct RegisterView: View {
     
     var registerButton: some View {
         Button(Strings.registerButtonTitle, action: clickedRegister)
-            .disabled(!model.canRegister)
+            .disabled(!model.canSubmit)
     }
     
     @ViewBuilder
@@ -69,12 +69,20 @@ struct RegisterView: View {
             switch field {
             case .name:
                 TextField(field.description, text: $model.name)
+                    .onChange(of: model.name) { newValue in
+                        model.validateField(.name)
+                    }
             case .email:
                 TextField(field.description, text: $model.email)
                     .keyboardType(.emailAddress)
+                    .onChange(of: model.email) { newValue in
+                        model.validateField(.email)
+                    }
             case .birthday:
                 DatePicker(field.description, selection: $model.birthday, displayedComponents: .date)
-                    .datePickerStyle(.automatic)
+                    .onChange(of: model.birthday) { newValue in
+                        model.validateField(.birthday)
+                    }
             }
         } header: {
             Text(field.title)
