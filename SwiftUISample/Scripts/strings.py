@@ -33,6 +33,7 @@ def generate_swift_class(strings):
     for key, value in strings.items():
         if value == None: 
             continue
+        value = value.strip()
         args = []
 
         words = key.split()
@@ -46,14 +47,21 @@ def generate_swift_class(strings):
             end = start + 4
             arg_name = f"arg{arg_index}"
             args.append(arg_name)
-            value = value[:start] + "\\(" + arg_name + ")" + value[end:]
+            insert = f"\\({arg_name})"
+            insert.replace("\n", "")
+            value = value[:start] + insert + value[end:]
             start = value.find("%lld")
         
         # Generate static property or static method based on parameters
         if len(args) > 0:
+            value.replace("\n", "")
             swift_code += f"    static func {key}("
             swift_code += ', '.join(f"{arg}: String" for arg in args)
-            swift_code += f") -> LocalizedStringResource {{ LocalizedStringResource(\"{key}\", defaultValue: \"{value}\") }}\n\n"
+            swift_code += ") -> LocalizedStringResource {\n"
+            swift_code += "        LocalizedStringResource(\n"
+            swift_code += f"            \"{key}\",\n"
+            swift_code += f"            defaultValue: \"{value}\")\n"
+            swift_code += "    }\n\n"
         else:
             swift_code += f"    static let {key_name}: LocalizedStringKey = \"{key}\"\n\n"
 
