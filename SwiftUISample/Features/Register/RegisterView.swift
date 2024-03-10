@@ -14,6 +14,7 @@ struct RegisterViewArguments: Hashable {
 struct RegisterView: View {
     @StateObject var model = RegisterViewModel()
     @EnvironmentObject var navigator: Navigator
+    @FocusState private var focusedField: RegisterFormField?
     
     init(_ args: RegisterViewArguments) {
         
@@ -71,6 +72,8 @@ struct RegisterView: View {
             case .name:
                 TextField(field.description, text: $model.name)
                     .autocorrectionDisabled()
+                    .submitLabel(.continue)
+                    .focused($focusedField, equals: field)
                     .onChange(of: model.name) { newValue in
                         model.validateField(.name)
                     }
@@ -79,6 +82,8 @@ struct RegisterView: View {
                     .keyboardType(.emailAddress)
                     .autocorrectionDisabled()
                     .textInputAutocapitalization(.never)
+                    .submitLabel(.continue)
+                    .focused($focusedField, equals: field)
                     .onChange(of: model.email) { newValue in
                         model.validateField(.email)
                     }
@@ -89,6 +94,7 @@ struct RegisterView: View {
                 }
                 .listRowBackground(Color.clear)
                 .accessibilityLabel(field.title)
+                .focused($focusedField, equals: field)
                 .accessibilityValue(model.birthday.formatted(date: .abbreviated, time: .omitted))
                 .onChange(of: model.birthday) { newValue in
                     model.validateField(.birthday)
@@ -103,6 +109,7 @@ struct RegisterView: View {
             }
         }
         .accessibilityLabel(field.title)
+        .onSubmit(focusNext)
     }
     
     var registerButton: some View {
@@ -135,6 +142,19 @@ struct RegisterView: View {
     func openWelcome() {
         let args = WelcomeViewArguments()
         navigator.push(.welcome(args))
+    }
+    
+    func focusNext() {
+        switch focusedField {
+        case .name:
+            focusedField = .email
+        case .email:
+            focusedField = .birthday
+        case .birthday:
+            focusedField = nil
+        case nil:
+            focusedField = .name
+        }
     }
 }
 
