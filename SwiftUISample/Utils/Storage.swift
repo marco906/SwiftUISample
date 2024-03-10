@@ -19,16 +19,19 @@ protocol Store {
     func getJSONObject<T: Decodable>(_ type: T.Type, forKey key: String) throws -> T
     
     func remove(key: String)
+    func removeAll()
 }
 
 class DefaultsStore: Store {
     private var store: UserDefaults
     let parser = JSONParser()
     let encoder = JSONEncoder()
+    let domain: String?
     
     static let shared = DefaultsStore()
     
     init(domain: String? = nil) {
+        self.domain = domain
         if let domain = domain {
             store = UserDefaults(suiteName: domain) ?? UserDefaults.standard
         } else {
@@ -87,6 +90,13 @@ class DefaultsStore: Store {
             throw StorageError.typeMismatch
         }
         return value
+    }
+    
+    func removeAll() {
+        let keys = store.dictionaryRepresentation().keys
+        for key in keys {
+            remove(key: key)
+        }
     }
 }
 

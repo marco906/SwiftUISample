@@ -8,7 +8,6 @@
 import Foundation
 import SwiftUI
 
-@MainActor
 class WelcomeViewModel: ObservableObject {
     @Published var state = WelcomeModelState.loading
     @Published var user: User?

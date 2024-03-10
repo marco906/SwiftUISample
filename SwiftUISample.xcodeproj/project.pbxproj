@@ -35,6 +35,7 @@
 		A992DF7D2B9DCE29006EA567 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95CAF852B9C8F7B0088561E /* Strings.swift */; };
 		A992DF7F2B9DEA2A006EA567 /* WelcomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A992DF7E2B9DEA2A006EA567 /* WelcomeViewModel.swift */; };
 		A9A1AA002B9CD99D0024D7F6 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A1A9FF2B9CD99D0024D7F6 /* WelcomeView.swift */; };
+		A9DFE5852B9E5BE90085C3AE /* WelcomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A992DF7E2B9DEA2A006EA567 /* WelcomeViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -418,6 +419,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A942FC582B9B7ACD008CA2C8 /* SwiftUISampleTests.swift in Sources */,
+				A9DFE5852B9E5BE90085C3AE /* WelcomeViewModel.swift in Sources */,
 				A992DF7A2B9DBB69006EA567 /* Keys.swift in Sources */,
 				A992DF7C2B9DBB92006EA567 /* Parser.swift in Sources */,
 				A95CAF892B9CA78A0088561E /* RegisterViewModel.swift in Sources */,

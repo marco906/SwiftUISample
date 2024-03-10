@@ -21,6 +21,9 @@ final class SwiftUISampleTests: XCTestCase {
         let model = RegisterViewModel()
         
         XCTAssertNoThrow(try model.validateEmail("test@example.com"), "Valid email should not throw")
+        XCTAssertNoThrow(try model.validateEmail("test.abc@example.com"), "Valid email should not throw")
+        XCTAssertNoThrow(try model.validateEmail("test.abc@example-corp.com"), "Valid email should not throw")
+        XCTAssertNoThrow(try model.validateEmail("test_abc@example-corp.com"), "Valid email should not throw")
         
         XCTAssertThrowsError(try model.validateEmail("invalid_email"), "Invalid email missing @ should throw") { error in
             XCTAssertEqual(error as? ValidationError, ValidationError.invalidEmail)
@@ -31,6 +34,18 @@ final class SwiftUISampleTests: XCTestCase {
         }
         
         XCTAssertThrowsError(try model.validateEmail("invalid_email@a.ch."), "Invalid email with more than one dot should throw") { error in
+            XCTAssertEqual(error as? ValidationError, ValidationError.invalidEmail)
+        }
+        
+        XCTAssertThrowsError(try model.validateEmail("test..abcl@a.ch"), "Invalid email with double dot should throw") { error in
+            XCTAssertEqual(error as? ValidationError, ValidationError.invalidEmail)
+        }
+        
+        XCTAssertThrowsError(try model.validateEmail("testl@a-.ch"), "Invalid email with - at start or end of domain should throw") { error in
+            XCTAssertEqual(error as? ValidationError, ValidationError.invalidEmail)
+        }
+        
+        XCTAssertThrowsError(try model.validateEmail("testl@-a.ch"), "Invalid email with - at start or end of domain should throw") { error in
             XCTAssertEqual(error as? ValidationError, ValidationError.invalidEmail)
         }
         
@@ -82,5 +97,58 @@ final class SwiftUISampleTests: XCTestCase {
         XCTAssertThrowsError(try model.validateBirthday(Date.distantPast), "Invalid date too far in the past should throw") { error in
             XCTAssertEqual(error as? ValidationError, ValidationError.invalidBirthday)
         }
+    }
+    
+    func testUserRegistration() throws {
+        let ewgister = RegisterViewModel()
+        let testStore = DefaultsStore(domain: "com.marcowenzel.SwiftUISample.test")
+        ewgister.store = testStore
+        
+        let name = "Max Mustermann"
+        let email = "max.mustermann@example.com"
+        let calendar = Calendar.current
+        let components = DateComponents(year: 1991, month: 1, day: 1)
+        let bday = calendar.date(from: components)!
+        
+        XCTAssertNoThrow(try ewgister.validateName(name), "valid name should now throw")
+        XCTAssertNoThrow(try ewgister.validateEmail(email), "valid mail should now throw")
+        XCTAssertNoThrow(try ewgister.validateBirthday(bday), "valid bday should now throw")
+
+        let user = User(name: name, email: email, birthday: bday)
+        
+        XCTAssertNoThrow(try ewgister.saveUser(user), "saving a valid user should not throw")
+        
+        let welcome = WelcomeViewModel()
+        welcome.store = testStore
+        
+        let loadedUser = try welcome.fetchCurrentUser()
+        XCTAssertEqual(loadedUser.name, name)
+        XCTAssertEqual(loadedUser.email, email)
+        XCTAssertEqual(loadedUser.birthday, bday)
+        
+        testStore.removeAll()
+    }
+    
+    func testDefaultStore() throws {
+        let store = DefaultsStore(domain: "com.marcowenzel.SwiftUISample.test")
+        
+        XCTAssertNoThrow(try store.set(true, forKey: "bool_test"), "saving should not fail")
+        XCTAssertNoThrow(try store.set("hello", forKey: "string_test"), "saving should not fail")
+        XCTAssertNoThrow(try store.set(123, forKey: "int_test"), "saving should not fail")
+        XCTAssertNoThrow(try store.set(1.0, forKey: "double_test"), "saving should not fail")
+        
+        let loadedBool = try store.getBool(forKey: "bool_test")
+        XCTAssert(loadedBool == true)
+        
+        let loadedString = try store.getString(forKey: "string_test")
+        XCTAssert(loadedString == "hello")
+        
+        let loadedInt = try store.getInt(forKey: "int_test")
+        XCTAssert(loadedInt == 123)
+        
+        let loadedDouble = try store.getDouble(forKey: "double_test")
+        XCTAssert(loadedDouble == 1.0)
+        
+        store.removeAll()
     }
 }
