@@ -40,11 +40,11 @@ def generate_swift_class(strings):
         key_name = words[0] + ''.join(word.title() for word in words[1:])
         
         # Find parameters in the value
-        start = value.find("%lld")
+        start = value.find("%@")
         arg_index = 0
         while start != -1:
             arg_index += 1
-            end = start + 4
+            end = start + 2
             arg_name = f"arg{arg_index}"
             args.append(arg_name)
             insert = f"\\({arg_name})"
