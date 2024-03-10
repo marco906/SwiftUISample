@@ -1,6 +1,28 @@
 {
   "sourceLanguage" : "de",
   "strings" : {
+    "buttonNextField" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nächstes Feld"
+          }
+        }
+      }
+    },
+    "buttonPreviousField" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vorheriges Feld"
+          }
+        }
+      }
+    },
     "buttonRetry" : {
       "extractionState" : "manual",
       "localizations" : {

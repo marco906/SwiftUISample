@@ -23,6 +23,9 @@ struct RegisterView: View {
     var body: some View {
         form
             .navigationTitle(Strings.registerNavigationTitle)
+            .toolbar {
+                toolbar
+            }
             .task {
                 start()
             }
@@ -35,6 +38,27 @@ struct RegisterView: View {
             formField(.email)
             formField(.birthday)
             registerButton
+        }
+        .scrollDismissesKeyboard(.immediately)
+    }
+    
+    @ToolbarContentBuilder
+    var toolbar: some ToolbarContent {
+        ToolbarItem(placement: .keyboard) {
+            Button {
+                focusPrevious()
+            } label: {
+                Label(Strings.buttonNextField, systemImage: "chevron.up")
+            }
+            .disabled(focusedField == RegisterFormField.name)
+        }
+        ToolbarItem(placement: .keyboard) {
+            Button {
+                focusNext()
+            } label: {
+                Label(Strings.buttonNextField, systemImage: "chevron.down")
+            }
+            .disabled(focusedField == RegisterFormField.email)
         }
     }
     
@@ -58,7 +82,7 @@ struct RegisterView: View {
             Image(systemName: "circle.fill")
                 .font(.system(size: 8))
                 .padding(.top, 4)
-                .padding(.leading, 2)
+                //.padding(.leading, 2)
                 .foregroundStyle(color)
             Text(msg)
                 .foregroundStyle(Color.secondary)
@@ -142,6 +166,19 @@ struct RegisterView: View {
     func openWelcome() {
         let args = WelcomeViewArguments()
         navigator.push(.welcome(args))
+    }
+    
+    func focusPrevious() {
+        switch focusedField {
+        case .name:
+            focusedField = nil
+        case .email:
+            focusedField = .name
+        case .birthday:
+            focusedField = .email
+        case nil:
+            focusedField = nil
+        }
     }
     
     func focusNext() {

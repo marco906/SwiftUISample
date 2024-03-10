@@ -7,6 +7,10 @@ import SwiftUI
 
 struct Strings {
 
+    static let buttonNextField: LocalizedStringKey = "buttonNextField"
+
+    static let buttonPreviousField: LocalizedStringKey = "buttonPreviousField"
+
     static let buttonRetry: LocalizedStringKey = "buttonRetry"
 
     static let errorGeneralMsg: LocalizedStringKey = "errorGeneralMsg"
