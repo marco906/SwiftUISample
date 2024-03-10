@@ -6,13 +6,17 @@
 //
 
 import Foundation
+import SwiftUI
 
 class RegisterViewModel: ObservableObject {
     @Published var state = RegisterModelState.normal
     @Published var name = ""
     @Published var email = ""
     @Published var birthday = Date.now
+    
     @Published var validationErrors = Set<ValidationError>()
+    
+    var store: Store { DefaultsStore.shared }
     
     var onAction: ((RegisterModelAction) -> Void)?
     
@@ -68,8 +72,9 @@ class RegisterViewModel: ObservableObject {
         try validateBirthday(birthday)
     }
     
-    private func save() {
-        // TODO: save user object
+    private func saveUser() throws {
+        let user = User(name: name, email: email, birthday: birthday)
+        try store.setJSONObject(user, forKey: Keys.Storage.currentUser)
     }
     
     func register() {
@@ -77,14 +82,20 @@ class RegisterViewModel: ObservableObject {
         
         do {
             try validate()
+            try saveUser()
         } catch {
-            if let _ = error as? ValidationError {
-                state = .error
-                return
+            // TODO: display errors
+            switch error {
+            case let validationError as ValidationError:
+                break
+            case let storageError as StorageError:
+                break
+            default:
+                break
             }
+            state = .error
+            return
         }
-        
-        save()
         
         state = .normal
         onAction?(.success)

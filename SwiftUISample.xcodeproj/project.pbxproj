@@ -27,6 +27,7 @@
 		A95CAF892B9CA78A0088561E /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90B64992B9B8DDC00DE7A53 /* RegisterViewModel.swift */; };
 		A992DF742B9D9BFD006EA567 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A992DF732B9D9BFD006EA567 /* Storage.swift */; };
 		A992DF762B9DAADC006EA567 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A992DF752B9DAADC006EA567 /* Parser.swift */; };
+		A992DF782B9DAF53006EA567 /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = A992DF772B9DAF53006EA567 /* Keys.swift */; };
 		A9A1AA002B9CD99D0024D7F6 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A1A9FF2B9CD99D0024D7F6 /* WelcomeView.swift */; };
 /* End PBXBuildFile section */
 
@@ -72,6 +73,7 @@
 		A95CAF872B9C96670088561E /* Makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
 		A992DF732B9D9BFD006EA567 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		A992DF752B9DAADC006EA567 /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
+		A992DF772B9DAF53006EA567 /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 		A9A1A9FE2B9CAFD20024D7F6 /* UnitTests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; name = UnitTests.xctestplan; path = SwiftUISampleTests/UnitTests.xctestplan; sourceTree = SOURCE_ROOT; };
 		A9A1A9FF2B9CD99D0024D7F6 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -150,6 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				A90B64A42B9B969500DE7A53 /* User.swift */,
+				A992DF772B9DAF53006EA567 /* Keys.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -389,6 +392,7 @@
 				A992DF742B9D9BFD006EA567 /* Storage.swift in Sources */,
 				A95CAF862B9C8F7B0088561E /* Strings.swift in Sources */,
 				A90B64A02B9B8EFD00DE7A53 /* Routes.swift in Sources */,
+				A992DF782B9DAF53006EA567 /* Keys.swift in Sources */,
 				A90B649E2B9B8EF200DE7A53 /* Navigator.swift in Sources */,
 				A90B64A32B9B93E200DE7A53 /* Mock.swift in Sources */,
 				A9A1AA002B9CD99D0024D7F6 /* WelcomeView.swift in Sources */,

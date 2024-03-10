@@ -57,8 +57,12 @@ class DefaultsStore: Store {
     }
     
     func setJSONObject<T>(_ value: T, forKey key: String) throws where T : Encodable {
-        let jsonData = try encoder.encode(value)
-        store.set(jsonData, forKey: key)
+        do {
+            let jsonData = try encoder.encode(value)
+            store.set(jsonData, forKey: key)
+        } catch {
+            throw StorageError.failedToSave
+        }
     }
     
     func getJSONObject<T>(_ type: T.Type, forKey key: String) throws -> T where T : Decodable {
@@ -89,4 +93,5 @@ class DefaultsStore: Store {
 enum StorageError: LocalizedError {
     case keyNotFound
     case typeMismatch
+    case failedToSave
 }
