@@ -23,19 +23,10 @@ In this example only push navigation is implemented, but this logic could easily
 ### Strings / Localization
 The app uses a Xcode String Catalog for managing Strings / Translations. Currently only `de` is localised, but you could easily add more languages just by adding it to the catalog.
 
-To prevent hardcoded strings for localised string keys, those are defined as static properties in `Strings.swift’.  For Strings containing parameters like ‘%@’ static methods which the parameters as arguments are defined. 
+- To prevent hardcoded strings for localised string keys, those are defined as static properties in `Strings.swift’.
+- For Strings containing parameters like ‘%@’ static methods which the parameters as arguments are defined. 
 
 The generation of the `Strings.swift` file is automated using the python script located in `SwiftUISample/Scripts`. Simply run `make strings` to update the string definitions.
-
-### Appearance & Accessibility
-The app supports the following appearance & accessibility features (there might be more): 
-- Dynamic Type size
-- Voiceover: Accessibility labels and values have been added.
-- Contrast and color filter settings
-- Darkmode / Lightmode
-
-### Input validation
-To validate the email address format a Swift `Regex` pattern is used in combination with some further checks for edge cases.
 
 ### Models & Data Flow
 This example project follows the following principles.
@@ -45,8 +36,21 @@ This example project follows the following principles.
 - View models use callbacks to call action on the view side
 - Views show different data depending on the current state of the model, for example loading, normal, error, etc.
 
+### Input validation
+To validate the email address format a Swift `Regex` pattern is used in combination with some further checks for edge cases.
+
+### Storage
+The projects uses Userdefaults as a persistent store. However, since the store is implemented by a `Store` protocol in the view model, it is easy to change to a differnt storage type.
+
 ### Unit & Integration Tests
 Several unit and integration tests can be found in the test folder `SwiftUISampleTest/`.
+
+### Appearance & Accessibility
+The app supports the following appearance & accessibility features (there might be more): 
+- Dynamic Type size
+- Voiceover: Accessibility labels and values have been added.
+- Contrast and color filter settings
+- Darkmode / Lightmode
 
 ### Package dependencies
 This project uses only one external package via SPM, which is the official [lottie-ios](https://github.com/airbnb/lottie-ios/) package. It is used for displaying a JSON Lottie animation in the welcome page. This is just a nice to have, not relevant for functionality.
