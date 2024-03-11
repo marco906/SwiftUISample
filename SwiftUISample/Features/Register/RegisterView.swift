@@ -82,7 +82,6 @@ struct RegisterView: View {
             Image(systemName: "circle.fill")
                 .font(.system(size: 8))
                 .padding(.top, 4)
-                //.padding(.leading, 2)
                 .foregroundStyle(color)
             Text(msg)
                 .foregroundStyle(Color.secondary)
@@ -116,7 +115,6 @@ struct RegisterView: View {
                     Text(field.description)
                         .foregroundStyle(.tertiary)
                 }
-                .listRowBackground(Color.clear)
                 .accessibilityLabel(field.title)
                 .focused($focusedField, equals: field)
                 .accessibilityValue(model.birthday.formatted(date: .abbreviated, time: .omitted))
@@ -132,7 +130,7 @@ struct RegisterView: View {
                     .foregroundStyle(.red)
             }
         }
-        .accessibilityLabel(field.title)
+        .accessibilityLabel(model.errorForField(field)?.msg ?? field.title)
         .onSubmit(focusNext)
     }
     
@@ -143,8 +141,9 @@ struct RegisterView: View {
                 .padding(.vertical, 4)
                 .frame(maxWidth: .infinity)
         }
-        .padding(.top)
+        .padding(.top, 32)
         .listRowBackground(Color.clear)
+        .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
         .buttonStyle(.borderedProminent)
         .disabled(!model.canSubmit)
     }

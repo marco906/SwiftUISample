@@ -67,7 +67,7 @@ struct WelcomeView: View {
     
     var animation: some View {
         LottieView(animation: .named("astronaut"))
-            .animationSpeed(1.5)
+            .animationSpeed(2.0)
             .looping()
             .frame(height: 250)
             .listRowBackground(Color.clear)
