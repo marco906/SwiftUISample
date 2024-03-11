@@ -138,7 +138,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Email Adresse"
+            "value" : "E-Mail-Adresse"
           }
         }
       }
@@ -148,7 +148,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Email"
+            "value" : "E-Mail"
           }
         }
       }
@@ -211,7 +211,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Fehler: Bitte gib eine gültige Email Adresse an."
+            "value" : "Fehler: Bitte gib eine gültige E-Mail-Adresse an."
           }
         }
       }
