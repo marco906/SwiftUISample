@@ -32,10 +32,10 @@
 		A992DF7C2B9DBB92006EA567 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A992DF752B9DAADC006EA567 /* Parser.swift */; };
 		A992DF7D2B9DCE29006EA567 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95CAF852B9C8F7B0088561E /* Strings.swift */; };
 		A992DF7F2B9DEA2A006EA567 /* WelcomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A992DF7E2B9DEA2A006EA567 /* WelcomeViewModel.swift */; };
+		A99473462BA0F42800168137 /* astronaut.json in Resources */ = {isa = PBXBuildFile; fileRef = A99473452BA0F42800168137 /* astronaut.json */; };
 		A9A1AA002B9CD99D0024D7F6 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A1A9FF2B9CD99D0024D7F6 /* WelcomeView.swift */; };
 		A9DFE5852B9E5BE90085C3AE /* WelcomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A992DF7E2B9DEA2A006EA567 /* WelcomeViewModel.swift */; };
 		A9DFE5882B9E6E1A0085C3AE /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = A9DFE5872B9E6E1A0085C3AE /* Lottie */; };
-		A9DFE58B2B9E6E580085C3AE /* astronaut.json in Resources */ = {isa = PBXBuildFile; fileRef = A9DFE58A2B9E6E580085C3AE /* astronaut.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,9 +72,9 @@
 		A992DF752B9DAADC006EA567 /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
 		A992DF772B9DAF53006EA567 /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 		A992DF7E2B9DEA2A006EA567 /* WelcomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewModel.swift; sourceTree = "<group>"; };
+		A99473452BA0F42800168137 /* astronaut.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = astronaut.json; sourceTree = "<group>"; };
 		A9A1A9FE2B9CAFD20024D7F6 /* UnitTests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; name = UnitTests.xctestplan; path = SwiftUISampleTests/UnitTests.xctestplan; sourceTree = SOURCE_ROOT; };
 		A9A1A9FF2B9CD99D0024D7F6 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
-		A9DFE58A2B9E6E580085C3AE /* astronaut.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = astronaut.json; path = ../../../../../Downloads/astronaut.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -243,7 +243,7 @@
 		A9DFE5892B9E6E290085C3AE /* Animations */ = {
 			isa = PBXGroup;
 			children = (
-				A9DFE58A2B9E6E580085C3AE /* astronaut.json */,
+				A99473452BA0F42800168137 /* astronaut.json */,
 			);
 			path = Animations;
 			sourceTree = "<group>";
@@ -336,7 +336,7 @@
 			files = (
 				A942FC4E2B9B7ACD008CA2C8 /* Preview Assets.xcassets in Resources */,
 				A95CAF802B9C67ED0088561E /* Localizable.xcstrings in Resources */,
-				A9DFE58B2B9E6E580085C3AE /* astronaut.json in Resources */,
+				A99473462BA0F42800168137 /* astronaut.json in Resources */,
 				A942FC4A2B9B7ACD008CA2C8 /* Assets.xcassets in Resources */,
 				A95CAF882B9C96670088561E /* Makefile in Resources */,
 				A95CAF842B9C6BB50088561E /* strings.py in Resources */,
